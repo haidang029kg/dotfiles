@@ -20,6 +20,6 @@ return {
       },
     }
 
-    vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>:NvimTreeFindFileToggle<CR>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>:NvimTreeFindFileToggle<CR>', { noremap = true, desc = 'File [e]xplorer' })
   end,
 }

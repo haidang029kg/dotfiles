@@ -18,8 +18,8 @@ return {
     vim.keymap.set('n', 'Bd', '<Cmd>BufferClose<CR>', {
       desc = '[b]uffer close',
     })
-    vim.keymap.set('n', 'Bca', '<Cmd>BufferCloseAllButCurrent<CR>', {
-      desc = '[b]uffer [c]lose [a]ll but keep the current',
+    vim.keymap.set('n', 'Bc', '<Cmd>BufferCloseAllButCurrent<CR>', {
+      desc = '[b]uffer [c]lose all but keep the current',
     })
   end,
   opts = {
