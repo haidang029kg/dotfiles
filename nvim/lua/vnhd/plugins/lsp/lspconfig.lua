@@ -277,7 +277,8 @@ return {
             require('lspconfig')[server_name].setup(server)
           end,
         },
-        ensure_installed = { 'jsonls', 'pyright', 'bashls' },
+        -- language servers
+        ensure_installed = { 'jsonls', 'bashls', 'yamlls', 'pyright', 'gopls' },
       }
     end,
   },
