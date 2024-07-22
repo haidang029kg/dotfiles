@@ -1,85 +1,10 @@
 return {
   {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    dependencies = {
-      'hrsh7th/cmp-buffer', -- source for text in buffer
-      'hrsh7th/cmp-path', -- source for file system paths
-      {
-        'L3MON4D3/LuaSnip',
-        -- follow latest release.
-        version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
-        build = 'make install_jsregexp',
-      },
-      'saadparwaiz1/cmp_luasnip', -- for autocompletion
-      'rafamadriz/friendly-snippets', -- useful snippets
-    },
-    config = function()
-      local cmp = require 'cmp'
-
-      local luasnip = require 'luasnip'
-
-      -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-      require('luasnip.loaders.from_vscode').lazy_load()
-
-      cmp.setup {
-        completion = {
-          completeopt = 'menu,menuone,preview,noselect',
-        },
-        snippet = { -- configure how nvim-cmp interacts with snippet engine
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert {
-          -- Select the [n]ext item
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          -- Select the [p]revious item
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
-
-          -- Scroll the documentation window [b]ack / [f]orward
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-
-          -- Manually trigger a completion from nvim-cmp.
-          --  Generally you don't need this, because nvim-cmp will display
-          --  completions whenever it has completion options available.
-          ['<C-Space>'] = cmp.mapping.complete(),
-
-          ['<C-e>'] = cmp.mapping.abort(), -- close completion window
-
-          -- Accept ([y]es) the completion.
-          --  This will auto-import if your LSP supports it.
-          --  This will expand snippets if the LSP sent a snippet.
-          ['<CR>'] = cmp.mapping.confirm {
-            select = false,
-          },
-        },
-        -- sources for autocompletion
-        sources = cmp.config.sources {
-          {
-            name = 'nvim_lsp',
-          },
-          {
-            name = 'luasnip',
-          }, -- snippets
-          {
-            name = 'buffer',
-          }, -- text within current buffer
-          {
-            name = 'path',
-          }, -- file system paths
-        },
-      }
-    end,
-  },
-  {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp', -- Automatically install LSPs and related tools to stdpath for Neovim
-      'williamboman/mason.nvim',
+      'williamboman/mason.nvim', --- Language Server Installation Manager
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -157,7 +82,7 @@ return {
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          -- map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
@@ -263,9 +188,11 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
+
       require('mason-tool-installer').setup {
         ensure_installed = { 'black', 'flake8', 'isort' },
       }
+
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
@@ -278,7 +205,7 @@ return {
           end,
         },
         -- language servers
-        ensure_installed = { 'jsonls', 'bashls', 'yamlls', 'pyright', 'gopls' },
+        ensure_installed = { 'lua_ls', 'jsonls', 'bashls', 'yamlls', 'pyright', 'gopls' },
       }
     end,
   },
