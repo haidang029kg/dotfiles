@@ -8,18 +8,19 @@ return {
     vim.g.barbar_auto_setup = false
 
     -- next & previous buffers
-    vim.keymap.set('n', 'Bh', '<Cmd>BufferPrevious<CR>', {
-      desc = '[b]uffer [p]revious',
+    vim.api.nvim_set_keymap('n', '<leader>9', '<Cmd>BufferPrevious<CR>', {
+      desc = 'buffer previous',
     })
-    vim.keymap.set('n', 'Bl', '<Cmd>BufferNext<CR>', {
-      desc = '[b]uffer [n]ext',
+    vim.api.nvim_set_keymap('n', '<leader>0', '<Cmd>BufferNext<CR>', {
+      desc = 'buffer next',
     })
+
     -- close buffer
-    vim.keymap.set('n', 'Bd', '<Cmd>BufferClose<CR>', {
-      desc = '[b]uffer close',
+    vim.api.nvim_set_keymap('n', '<leader>8', '<cmd>:BufferClose<CR>', {
+      desc = 'buffer close',
     })
-    vim.keymap.set('n', 'Bc', '<Cmd>BufferCloseAllButCurrent<CR>', {
-      desc = '[b]uffer [c]lose all but keep the current',
+    vim.api.nvim_set_keymap('n', '<leader>7', '<Cmd>BufferCloseAllButCurrent<CR>', {
+      desc = 'buffer close all but keep the current',
     })
   end,
   opts = {
