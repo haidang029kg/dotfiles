@@ -205,7 +205,7 @@ return {
           end,
         },
         -- language servers
-        ensure_installed = { 'lua_ls', 'jsonls', 'bashls', 'yamlls', 'pyright', 'gopls' },
+        ensure_installed = { 'lua_ls', 'jsonls', 'bashls', 'yamlls', 'pyright' },
       }
     end,
   },

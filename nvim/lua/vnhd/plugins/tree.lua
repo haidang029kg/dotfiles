@@ -4,6 +4,7 @@ return {
   lazy = false,
   dependencies = {
     'nvim-tree/nvim-web-devicons',
+    { 'echasnovski/mini.nvim', version = '*' },
   },
   config = function()
     require('nvim-tree').setup {

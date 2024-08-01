@@ -1,3 +1,5 @@
+require 'vnhd.python'
+
 if vim.g.vscode then
   -- VSCode extension
   require 'vnhd.vscode'
