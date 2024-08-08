@@ -139,10 +139,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Patse in visual mode without overwriting the register
 vim.keymap.set({ 'n', 'v' }, 'p', 'P')
 
--- Go to line end (normal and visual mode)
-vim.keymap.set({ 'n', 'v' }, 'L', '$')
--- Go to line beginning (normal and visual mode)
-vim.keymap.set({ 'n', 'v' }, 'H', '^')
+-- -- Go to line end (normal and visual mode)
+-- vim.keymap.set({ 'n', 'v' }, 'L', '$')
+-- -- Go to line beginning (normal and visual mode)
+-- vim.keymap.set({ 'n', 'v' }, 'H', '^')
 
 -- VS code command prompt
 vim.keymap.set({ 'n' }, '<leader>cmd', commonCommands.showCommands)
@@ -160,10 +160,10 @@ vim.keymap.set({ 'n' }, '<leader>B', navigation.navigateForward)
 
 -- Editors
 vim.keymap.set('n', '<leader>w', editors.save)
-vim.keymap.set('n', '<leader>8', editors.closeCurrentEditor, {})
-vim.keymap.set('n', '<leader>7', editors.closeAllEditors, {})
-vim.keymap.set('n', '<leader>0', editors.nextEditor, {})
-vim.keymap.set('n', '<leader>9', editors.previousEditor, {})
+vim.keymap.set('n', '<leader>q', editors.closeCurrentEditor, {})
+vim.keymap.set('n', '<leader>Q', editors.closeAllEditors, {})
+vim.keymap.set('n', 'L', editors.nextEditor, {})
+vim.keymap.set('n', 'H', editors.previousEditor, {})
 
 -- search -> s
 vim.keymap.set({ 'n' }, '<leader>sf', projects.goToFile) -- quickly open file

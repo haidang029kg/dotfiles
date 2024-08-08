@@ -8,18 +8,18 @@ return {
     vim.g.barbar_auto_setup = false
 
     -- next & previous buffers
-    vim.api.nvim_set_keymap('n', '<leader>9', '<Cmd>BufferPrevious<CR>', {
+    vim.api.nvim_set_keymap('n', 'H', '<Cmd>BufferPrevious<CR>', {
       desc = 'buffer previous',
     })
-    vim.api.nvim_set_keymap('n', '<leader>0', '<Cmd>BufferNext<CR>', {
+    vim.api.nvim_set_keymap('n', 'L', '<Cmd>BufferNext<CR>', {
       desc = 'buffer next',
     })
 
     -- close buffer
-    vim.api.nvim_set_keymap('n', '<leader>8', '<cmd>:BufferClose<CR>', {
+    vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>:BufferClose<CR>', {
       desc = 'buffer close',
     })
-    vim.api.nvim_set_keymap('n', '<leader>7', '<Cmd>BufferCloseAllButCurrent<CR>', {
+    vim.api.nvim_set_keymap('n', '<leader>Q', '<Cmd>BufferCloseAllButCurrent<CR>', {
       desc = 'buffer close all but keep the current',
     })
   end,

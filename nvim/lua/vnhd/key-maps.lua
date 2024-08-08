@@ -19,10 +19,10 @@ vim.api.nvim_set_keymap('n', 'J', ':m .+1<CR>==', {
 -- Patse in visual mode without overwriting the register
 vim.keymap.set({ 'n', 'v' }, 'p', 'P')
 
--- Go to line end (normal and visual mode)
-vim.keymap.set({ 'n', 'v' }, 'L', '$')
--- Go to line beginning (normal and visual mode)
-vim.keymap.set({ 'n', 'v' }, 'H', '^')
+-- -- Go to line end (normal and visual mode)
+-- vim.keymap.set({ 'n', 'v' }, 'L', '$')
+-- -- Go to line beginning (normal and visual mode)
+-- vim.keymap.set({ 'n', 'v' }, 'H', '^')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
