@@ -1,7 +1,6 @@
-require 'vnhd.python'
-
 if vim.g.vscode then
   -- VSCode extension
+  require 'vnhd.python'
   require 'vnhd.vscode'
 else
   -- ordinary Neovim
