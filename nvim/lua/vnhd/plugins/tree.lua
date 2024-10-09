@@ -14,6 +14,7 @@ return {
         git_clean = false,
         no_buffer = false,
         custom = { '__pycache__' },
+        exclude = { '.log' },
       },
       update_focused_file = {
         enable = true,

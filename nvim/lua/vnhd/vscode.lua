@@ -123,6 +123,44 @@ local fold = {
   end,
 }
 
+local function surround_with(char)
+  -- Get the visually selected text
+  local selected_text = vim.fn.getreg '"' -- Get the contents of the unnamed register (from previous deletion)
+  -- Prepare the new text with surrounding characters
+  local new_text = char .. selected_text .. char
+  -- Replace the selected text with the new text
+  vim.api.nvim_put({ new_text }, 'c', false, true)
+end
+
+local surrounding = {
+  addByEmbrace = function()
+    -- Prompt the user for the character to surround with
+    local char = vim.fn.input 'Surround with: '
+    if char == '"' then
+      vim.fn.VSCodeNotify 'extension.embraceDoubleQuotes'
+    elseif char == "'" then
+      vim.fn.VSCodeNotify 'extension.embraceSingleQuotes'
+    elseif char == '{' then
+      vim.fn.VSCodeNotify 'extension.embraceCurlyBrackets'
+    elseif char == '[' then
+      vim.fn.VSCodeNotify 'extension.embraceSquareBrackets'
+    elseif char == '(' then
+      vim.fn.VSCodeNotify 'extension.embraceParenthesis'
+    elseif char == '<' then
+      vim.fn.VSCodeNotify 'extension.embraceAngleBrackets'
+    else
+      print 'No character provided.'
+    end
+  end,
+  addCustom = function()
+    -- Prompt the user for the character to surround with
+    local char = vim.fn.input 'Surround with: '
+    -- Delete the selected text and yank it
+    vim.cmd 'normal! diw' -- Delete the inner word and yank it to the unnamed register
+    surround_with(char)
+  end,
+}
+
 -- highlight yanked
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -188,3 +226,7 @@ vim.keymap.set({ 'n' }, '<leader>zc', fold.close)
 vim.keymap.set({ 'n' }, '<leader>zg', fold.allMarkerRegion)
 vim.keymap.set({ 'n' }, '<leader>zG', fold.openAllMarkerRegion)
 vim.keymap.set({ 'n' }, '<leader>za', fold.toggle)
+
+-- sourrounding
+vim.keymap.set({ 'v' }, 'ys', surrounding.addByEmbrace)
+vim.keymap.set({ 'n' }, 'yys', surrounding.addCustom)
