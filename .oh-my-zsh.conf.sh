@@ -16,15 +16,7 @@ plugins=(
     zsh-autocomplete
 )
 
-
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-
-# Enable menu selection
-zstyle ':completion:*' menu select
-
-# Bind keys to cycle forward and backward through suggestions
-bindkey '^n' forward-word      # CTRL + n to cycle forward
-bindkey '^p' backward-word     # CTRL + p to cycle backward
 
 source $ZSH/oh-my-zsh.sh
 
