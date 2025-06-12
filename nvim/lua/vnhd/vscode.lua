@@ -89,40 +89,6 @@ local bookmark = {
 	end,
 }
 
-local fold = {
-	toggle = function()
-		vim.fn.VSCodeNotify 'editor.toggleFold'
-	end,
-
-	all = function()
-		vim.fn.VSCodeNotify 'editor.foldAll'
-	end,
-	openAll = function()
-		vim.fn.VSCodeNotify 'editor.unfoldAll'
-	end,
-
-	close = function()
-		vim.fn.VSCodeNotify 'editor.fold'
-	end,
-	open = function()
-		vim.fn.VSCodeNotify 'editor.unfold'
-	end,
-	openRecursive = function()
-		vim.fn.VSCodeNotify 'editor.unfoldRecursively'
-	end,
-
-	blockComment = function()
-		vim.fn.VSCodeNotify 'editor.foldAllBlockComments'
-	end,
-
-	allMarkerRegion = function()
-		vim.fn.VSCodeNotify 'editor.foldAllMarkerRegions'
-	end,
-	openAllMarkerRegion = function()
-		vim.fn.VSCodeNotify 'editor.unfoldAllMarkerRegions'
-	end,
-}
-
 local function surround_with(char)
 	-- Get the visually selected text
 	local selected_text = vim.fn.getreg '"' -- Get the contents of the unnamed register (from previous deletion)
@@ -217,6 +183,40 @@ vim.keymap.set({ 'n' }, '<leader>mn', bookmark.next)
 vim.keymap.set({ 'n' }, '<leader>mp', bookmark.previous)
 
 -- folding -> z
+local fold = {
+	toggle = function()
+		vim.fn.VSCodeNotify 'editor.toggleFold'
+	end,
+
+	all = function()
+		vim.fn.VSCodeNotify 'editor.foldAll'
+	end,
+	openAll = function()
+		vim.fn.VSCodeNotify 'editor.unfoldAll'
+	end,
+
+	close = function()
+		vim.fn.VSCodeNotify 'editor.fold'
+	end,
+	open = function()
+		vim.fn.VSCodeNotify 'editor.unfold'
+	end,
+	openRecursive = function()
+		vim.fn.VSCodeNotify 'editor.unfoldRecursively'
+	end,
+
+	blockComment = function()
+		vim.fn.VSCodeNotify 'editor.foldAllBlockComments'
+	end,
+
+	allMarkerRegion = function()
+		vim.fn.VSCodeNotify 'editor.foldAllMarkerRegions'
+	end,
+	openAllMarkerRegion = function()
+		vim.fn.VSCodeNotify 'editor.unfoldAllMarkerRegions'
+	end,
+}
+
 vim.keymap.set({ 'n' }, '<leader>zr', fold.openAll)
 vim.keymap.set({ 'n' }, '<leader>zO', fold.openRecursive)
 vim.keymap.set({ 'n' }, '<leader>zo', fold.open)
@@ -230,3 +230,15 @@ vim.keymap.set({ 'n' }, '<leader>za', fold.toggle)
 -- sourrounding
 vim.keymap.set({ 'v' }, 'ys', surrounding.addByEmbrace)
 vim.keymap.set({ 'n' }, 'ys', surrounding.addCustom)
+
+-- pin documents
+local pinDocuments = {
+	pin = function()
+		vim.fn.VSCodeCall 'workbench.action.pinEditor'
+	end,
+	unpin = function()
+		vim.fn.VSCodeNotify 'workbench.action.unpinEditor'
+	end,
+}
+vim.keymap.set({ 'n' }, '<leader>p', pinDocuments.pin)
+vim.keymap.set({ 'n' }, '<leader>P', pinDocuments.unpin)
