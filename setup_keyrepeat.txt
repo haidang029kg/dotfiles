@@ -1,0 +1,13 @@
+https://mac-key-repeat.zaymon.dev/
+
+Tune key-repeat preferences without restarting or logging out of your computer... more than once 😅
+
+
+These terminal commands let you set key-repeat values below the minimum available in system preferences. Copy them into your terminal to set the chosen key repeat timings:
+defaults write -g InitialKeyRepeat -int 8
+defaults write -g KeyRepeat -int 1
+
+Copy this command to disable press and hold for special characters:
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+Note: You must log out or restart for these changes to take effect.
