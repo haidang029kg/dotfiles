@@ -6,14 +6,21 @@ vim.keymap.set({ 'i' }, 'jj', '<Esc>')
 
 -- Move current line up or down
 vim.api.nvim_set_keymap('n', 'K', ':m .-2<CR>==', {
-  noremap = true,
-  silent = true,
-  desc = 'Move line up',
+	noremap = true,
+	silent = true,
+	desc = 'Move line up',
 })
 vim.api.nvim_set_keymap('n', 'J', ':m .+1<CR>==', {
-  noremap = true,
-  silent = true,
-  desc = 'Move line down',
+	noremap = true,
+	silent = true,
+	desc = 'Move line down',
+})
+
+-- Merge the line below to the current
+vim.api.nvim_set_keymap('n', '<leader>J', 'J', {
+	noremap = true,
+	silent = true,
+	desc = 'Merge line below to the current',
 })
 
 -- Patse in visual mode without overwriting the register

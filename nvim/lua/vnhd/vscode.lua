@@ -33,6 +33,9 @@ local document = {
 	rename = function()
 		vim.fn.VSCodeNotify 'editor.action.rename'
 	end,
+	joinLines = function()
+		vim.fn.VSCodeNotify 'editor.action.joinLines'
+	end,
 }
 
 local editors = {
@@ -157,6 +160,8 @@ vim.keymap.set({ 'v' }, '<leader>rn', document.rename)
 -- Move line up & down
 vim.keymap.set({ 'n' }, 'K', document.moveLineUp)
 vim.keymap.set({ 'n' }, 'J', document.moveLineDown)
+-- Merge Lines
+vim.keymap.set({ 'n' }, '<leader>J', document.joinLines)
 
 -- Navigation
 vim.keymap.set({ 'n' }, '<leader>b', navigation.navigateBack)
