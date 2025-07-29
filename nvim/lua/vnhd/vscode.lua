@@ -36,6 +36,9 @@ local document = {
 	joinLines = function()
 		vim.fn.VSCodeNotify 'editor.action.joinLines'
 	end,
+	organizeImports = function()
+		vim.fn.VSCodeNotify 'editor.action.organizeImports'
+	end,
 }
 
 local editors = {
@@ -155,6 +158,9 @@ vim.keymap.set({ 'n', 'v' }, 'p', 'P')
 vim.keymap.set({ 'n' }, '<leader>cmd', commonCommands.showCommands)
 -- Format Document
 vim.keymap.set({ 'n' }, '<leader>f', document.formatDocument)
+-- Optimize imports
+vim.keymap.set({ 'n' }, '<leader>F', document.organizeImports)
+
 -- Rename the selected symbol
 vim.keymap.set({ 'v' }, '<leader>rn', document.rename)
 -- Move line up & down
