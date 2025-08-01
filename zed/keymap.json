@@ -1,0 +1,22 @@
+[
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space f": "editor::Format",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem"
+    }
+  }
+]
