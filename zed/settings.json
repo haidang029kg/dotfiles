@@ -27,6 +27,23 @@
         }
       }
     },
+    "basedpyright": {
+      "binary": {
+        "path": ".venv/bin/basedpyright-langserver",
+        "arguments": ["--stdio"]
+      },
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        },
+        "basedpyright.analysis": {
+          "diagnosticMode": "openFilesOnly",
+          "inlayHints": {
+            "callArgumentNames": false
+          }
+        }
+      }
+    },
     "ty": {
       "binary": {
         "path": ".venv/bin/ty",
@@ -36,7 +53,7 @@
   },
   "languages": {
     "Python": {
-      "language_servers": ["pyright", "ruff", "ty"],
+      "language_servers": ["basedpyright", "!pyright", "ruff", "ty"],
       "formatter": [
         {
           "language_server": {
@@ -62,6 +79,7 @@
   },
   "auto_install_extensions": {
     "cspell": true,
+    "basedpyright": true,
     "ty": true,
     "ruff": true,
     "material-icon-theme": true,
