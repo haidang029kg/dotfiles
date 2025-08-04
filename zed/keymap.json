@@ -10,7 +10,9 @@
     "bindings": {
       "space f": "editor::Format",
       "shift-l": "pane::ActivateNextItem",
-      "shift-h": "pane::ActivatePreviousItem"
+      "shift-h": "pane::ActivatePreviousItem",
+      "ctrl--": "pane::GoBack",
+      "ctrl-_": "pane::GoForward"
     }
   }
 ]
