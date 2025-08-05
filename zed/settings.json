@@ -38,6 +38,7 @@
         },
         "basedpyright.analysis": {
           "diagnosticMode": "openFilesOnly",
+          "typeCheckingMode": "standard",
           "inlayHints": {
             "callArgumentNames": false
           }
