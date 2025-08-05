@@ -5,3 +5,7 @@ alias get_lan_ip="LAN_IP=\$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk 
 # export PATH="$PATH:/opt/nvim-linux64/bin"
 
 export GIT_EDITOR=nvim # GIT using NVIM
+
+# cmd to copy the current branch name to the clipboard
+alias gC="git branch --show-current | pbcopy"
+

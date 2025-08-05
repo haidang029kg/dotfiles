@@ -1,8 +1,8 @@
 -- clear highlight search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Set key map for double jj to escape
-vim.keymap.set({ 'i' }, 'jj', '<Esc>')
+-- Set key map for double jk to escape
+vim.keymap.set({ 'i' }, 'jk', '<Esc>')
 
 -- Move current line up or down
 vim.api.nvim_set_keymap('n', 'K', ':m .-2<CR>==', {
