@@ -1,8 +1,9 @@
-iterm2
 pypoetry
 matplotlib
 fish
 uv
-
 zed/prompts
+github-copilot
+envman
+nvim/lazy-lock.json
 
