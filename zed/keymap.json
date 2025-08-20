@@ -8,11 +8,14 @@
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
-      "space f": "editor::Format",
-      "shift-l": "pane::ActivateNextItem",
-      "shift-h": "pane::ActivatePreviousItem",
-      "ctrl--": "pane::GoBack",
-      "ctrl-_": "pane::GoForward"
+      // general
+      "space f m": "editor::Format",
+      "space f f": "file_finder::Toggle",
+      //
+      "tab": "pane::ActivateNextItem",
+      "shift-tab": "pane::ActivatePreviousItem",
+      //
+      "space b": "pane::GoBack"
     }
   }
 ]
