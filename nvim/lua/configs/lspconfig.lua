@@ -8,6 +8,7 @@ local basic_servers = {
   "ts_ls",
   "ruff",
   "yamlls",
+  "yaml-language-server",
 }
 
 vim.lsp.enable(basic_servers)
