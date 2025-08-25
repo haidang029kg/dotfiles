@@ -2,6 +2,12 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     python = { "ruff_format" },
+    typescriptreact = {
+      "prettierd",
+      "prettier",
+      stop_after_first = true,
+    },
+    yaml = { "prettier" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
