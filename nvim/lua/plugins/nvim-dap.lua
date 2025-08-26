@@ -3,34 +3,52 @@ return {
     "mfussenegger/nvim-dap",
     event = "VeryLazy",
     dependencies = {
-      "nvim-neotest/nvim-nio",
       "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
       "theHamsta/nvim-dap-virtual-text",
+      "mfussenegger/nvim-dap-python",
     },
     config = function()
       local dap = require "dap"
       local dapui = require "dapui"
 
-      dap.adapters.python = {
-        type = "executable",
-        command = os.getenv "HOME" .. "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python",
-        args = { "-m", "debugpy.adapter" },
-      }
-
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-
+      require("dapui").setup()
       require("nvim-dap-virtual-text").setup {
         commented = true, -- Show virtual text alongside comment
       }
+      require("dap-python").setup()
+
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          pythonPath = function()
+            local cwd = vim.fn.getcwd()
+            if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+              return cwd .. "/venv/bin/python"
+            elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+              return cwd .. "/.venv/bin/python"
+            else
+              return "/usr/bin/python"
+            end
+          end,
+        },
+      }
+
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
 
       vim.fn.sign_define("DapBreakpoint", {
         text = "",
@@ -89,18 +107,6 @@ return {
       vim.keymap.set("n", "<leader>du", function()
         dapui.toggle()
       end, opts)
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap-python",
-    event = "VeryLazy",
-    ft = "python",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-    },
-    config = function()
-      local python = vim.fn.expand "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-      require("dap-python").setup(python)
     end,
   },
 }
