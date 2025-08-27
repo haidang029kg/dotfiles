@@ -15,7 +15,17 @@ vim.lsp.enable(basic_servers)
 
 -- dynamically configuration
 local servers = {
-  basedpyright = {
+  -- basedpyright = {
+  --   settings = {
+  --     python = {
+  --       analysis = {
+  --         autoSearchPaths = true,
+  --         typeCheckingMode = "basic",
+  --       },
+  --     },
+  --   },
+  -- },
+  pyright = {
     settings = {
       python = {
         analysis = {
