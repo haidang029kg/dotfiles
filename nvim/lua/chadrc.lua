@@ -6,12 +6,13 @@
 local M = {}
 
 M.base46 = {
-  theme = "onedark",
+  theme = "vscode_dark",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
   -- },
+  transparency = true,
 }
 
 M.nvdash = { load_on_startup = true }
