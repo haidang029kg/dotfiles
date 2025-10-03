@@ -8,6 +8,7 @@ local options = {
       stop_after_first = true,
     },
     yaml = { "prettier" },
+    json = { "jq" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
