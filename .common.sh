@@ -9,3 +9,10 @@ export GIT_EDITOR=nvim # GIT using NVIM
 # cmd to copy the current branch name to the clipboard
 alias gC="git branch --show-current | pbcopy"
 
+# cd to home
+alias cdh="cd ~"
+# cd to dotfile cfg directory
+alias cdf="cd ~/.config/"
+# cd to project directory
+alias cdp="cd ~/projects"
+

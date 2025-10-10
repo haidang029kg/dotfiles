@@ -1,5 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # installatio by git clone
 # git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
