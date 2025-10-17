@@ -1,0 +1,2 @@
+Check nvchad config by defualt
+~/.local/share/nvim/lazy/NvChad/lua/nvchad/plugins/init.lua

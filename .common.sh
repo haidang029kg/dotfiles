@@ -6,6 +6,9 @@ alias get_lan_ip="LAN_IP=\$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk 
 
 export GIT_EDITOR=nvim # GIT using NVIM
 
+alias nv="nvim"
+alias vim="nvim"
+
 # cmd to copy the current branch name to the clipboard
 alias gC="git branch --show-current | pbcopy"
 

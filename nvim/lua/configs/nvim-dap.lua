@@ -1,11 +1,22 @@
 local dap = require "dap"
 local dapui = require "dapui"
+local dap_virtual_text = require "nvim-dap-virtual-text"
+local dap_python = require "dap-python"
 
-require("dapui").setup()
-require("nvim-dap-virtual-text").setup {
-  commented = true, -- Show virtual text alongside comment
+dapui.setup()
+
+dap_python.setup()
+
+-- Configure Node.js debug adapter (following the article's approach)
+dap.adapters["pwa-node"] = {
+  type = "server",
+  host = "::1",
+  port = "${port}",
+  executable = {
+    command = "js-debug-adapter",
+    args = { "${port}" },
+  },
 }
-require("dap-python").setup()
 
 dap.configurations.python = {
   {
@@ -24,6 +35,21 @@ dap.configurations.python = {
       end
     end,
   },
+}
+
+dap.configurations.typescript = {
+  {
+    type = "pwa-node",
+    request = "launch",
+    name = "Launch file",
+    program = "${file}",
+    cwd = "${workspaceFolder}",
+  },
+}
+
+dap_virtual_text.setup {
+  commented = false, -- Show virtual text alongside comment
+  enabled = false,
 }
 
 dap.listeners.before.attach.dapui_config = function()
