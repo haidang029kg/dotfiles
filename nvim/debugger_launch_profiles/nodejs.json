@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Debug NestJS",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "start:dev"
+      ],
+      "console": "integratedTerminal",
+      "restart": true,
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "pwa-node",
+      "request": "attach",
+      "name": "Attach to NestJS",
+      "port": 9229,
+      "restart": true,
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": null
+    }
+  ],
+  "cmd to start process for attching debuger": "ENVIRONMENT=local nest start monolith --debug 0.0.0.0:9229 --watch"
+}

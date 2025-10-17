@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI (Uvicorn)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--reload"
+      ],
+      "jinja": true
+    },
+    {
+      "name": "Attach FastAPI (CLI)",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "127.0.0.1",
+        "port": 5678
+      },
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}",
+          "remoteRoot": "."
+        }
+      ],
+      "jinja": true,
+      "justMyCode": false
+    }
+  ],
+  "cmd to start process for attching debuger": "PYTHONPATH=. && python -m debugpy --listen 0.0.0.0:5678 -m fastapi dev app/main.py"
+}
