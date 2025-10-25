@@ -6,13 +6,13 @@
 local M = {}
 
 M.base46 = {
-  theme = "gruvbox",
+  theme = "catppuccin",
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
-  transparency = true,
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
+  -- transparency = true,
 }
 
 M.nvdash = { load_on_startup = true }
@@ -40,10 +40,10 @@ M.mason = {
   },
 }
 
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
--- }
+M.ui = {
+  tabufline = {
+    lazyload = false,
+  },
+}
 
 return M
