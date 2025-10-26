@@ -11,7 +11,7 @@ return {
       "mxsdev/nvim-dap-vscode-js",
     },
     config = function()
-      require "configs.nvim-dap"
+      require "configs.dap"
     end,
   },
 }
