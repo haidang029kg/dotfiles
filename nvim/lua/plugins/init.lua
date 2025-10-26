@@ -39,5 +39,17 @@ return {
     },
   },
   -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
+  { import = "nvchad.blink.lazyspec" },
+  {
+    "Saghen/blink.cmp",
+    opts = {
+      -- Enable cmdline completion
+      cmdline = {
+        enabled = true,
+        completion = {
+          menu = { auto_show = true },
+        },
+      },
+    },
+  },
 }
