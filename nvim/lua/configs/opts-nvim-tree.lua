@@ -10,6 +10,13 @@ local options = {
   git = {
     ignore = false,
   },
+  filters = {
+    custom = {
+      "__pycache__",
+      "*.pyc",
+      ".DS_Store",
+    },
+  },
 }
 
 return options
