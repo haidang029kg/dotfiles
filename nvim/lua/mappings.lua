@@ -7,6 +7,9 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- Paste in visual mode without overwriting the register
+map("x", "p", '"_dP', { desc = "Paste without overwriting register" })
+
 -- Terminal toggle floating (alternative to Alt-i for macOS with Aerospace)
 map({ "n", "t" }, "<leader>tf", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
