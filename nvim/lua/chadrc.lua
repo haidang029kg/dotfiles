@@ -23,6 +23,7 @@ M.mason = {
     "lua-language-server",
     "pyright",
     "typescript-language-server",
+    "tailwindcss-language-server",
     "yaml-language-server",
 
     -- Formatters

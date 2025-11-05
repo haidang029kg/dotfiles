@@ -39,6 +39,8 @@ local servers = {
       },
     },
   },
+
+  tailwindcss = {},
 }
 
 -- Get blink.cmp LSP capabilities
