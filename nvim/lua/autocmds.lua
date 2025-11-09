@@ -38,3 +38,26 @@ vim.api.nvim_create_user_command("RuffOptimizeImports", function()
     vim.notify("Ruff error: " .. result, vim.log.levels.ERROR)
   end
 end, { desc = "Optimize Python imports with ruff" })
+
+-- Custom command to copy file path and line number for Claude Code
+vim.api.nvim_create_user_command("CopyFilePathLine", function()
+  local file = vim.fn.expand("%:p")
+  local line = vim.api.nvim_win_get_cursor(0)[1]
+
+  -- Get git root directory
+  local git_root = vim.fn.systemlist("git -C " .. vim.fn.shellescape(vim.fn.expand("%:p:h")) .. " rev-parse --show-toplevel")[1]
+
+  if vim.v.shell_error ~= 0 then
+    vim.notify("Not in a git repository", vim.log.levels.WARN)
+    return
+  end
+
+  -- Get relative path from git root
+  local relative_path = file:sub(#git_root + 2) -- +2 to skip the trailing slash
+  local result = relative_path .. ":" .. line
+
+  -- Copy to clipboard
+  vim.fn.setreg("+", result)
+
+  vim.notify("Copied: " .. result, vim.log.levels.INFO)
+end, { desc = "Copy file path and line number for Claude Code" })
