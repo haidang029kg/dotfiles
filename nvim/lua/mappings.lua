@@ -21,4 +21,11 @@ map({ "n", "t" }, "<leader>tf", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "terminal toggle floating term" })
 
+vim.api.nvim_set_keymap(
+  "n",
+  "gvd",
+  ":vsplit | lua vim.lsp.buf.definition()<CR>",
+  { noremap = true, silent = true, desc = "Go to definition in vertical split" }
+)
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
