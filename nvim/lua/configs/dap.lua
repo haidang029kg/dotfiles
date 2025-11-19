@@ -52,11 +52,12 @@ dap_virtual_text.setup {
   enabled = false,
 }
 
+-- DAP event listeners (without auto-opening UI)
 dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
+  -- Don't auto-open UI, but keep listener for proper DAP initialization
 end
 dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
+  -- Don't auto-open UI, but keep listener for proper DAP initialization
 end
 dap.listeners.before.event_terminated.dapui_config = function()
   dapui.close()
