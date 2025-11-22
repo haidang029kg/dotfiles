@@ -21,6 +21,11 @@ This document lists all the CLI tools used in this configuration setup.
 **Config:** `alacritty/alacritty.toml`
 **Website:** https://alacritty.org/
 
+### Kitty
+**Purpose:** Fast, feature-rich, GPU-accelerated terminal emulator
+**Config:** `kitty/kitty.conf`
+**Website:** https://sw.kovidgoyal.net/kitty/
+
 ### tmux
 **Purpose:** Terminal multiplexer - manage multiple terminal sessions
 **Config:** `.tmux.conf`
