@@ -61,3 +61,14 @@ vim.api.nvim_create_user_command("CopyFilePathLine", function()
 
   vim.notify("Copied: " .. result, vim.log.levels.INFO)
 end, { desc = "Copy file path and line number for Claude Code" })
+
+-- Custom command to close all buffers except current
+vim.api.nvim_create_user_command("BufOnly", function()
+  local cur = vim.fn.bufnr()
+  local buffers = vim.api.nvim_list_bufs()
+  for _, bufnr in ipairs(buffers) do
+    if bufnr ~= cur and vim.api.nvim_buf_is_loaded(bufnr) then
+      vim.api.nvim_buf_delete(bufnr, { force = false })
+    end
+  end
+end, { desc = "Close all buffers except current" })
