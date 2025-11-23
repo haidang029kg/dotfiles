@@ -54,7 +54,7 @@ install_terminal_tools() {
 
     local tools=(
         "alacritty"
-        "kitty"
+        "ghostty"
         "tmux"
     )
 

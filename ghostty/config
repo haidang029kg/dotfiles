@@ -1,0 +1,58 @@
+# Ghostty Configuration
+
+# ===== Font Configuration =====
+font-family = Hack Nerd Font Mono
+font-size = 20
+
+# Font rendering
+font-feature = +calt  # Disable ligatures (use +calt to enable)
+
+# ===== Window Configuration =====
+# Window padding
+window-padding-x = 10
+window-padding-y = 10
+
+# Background opacity (0.0 - 1.0)
+background-opacity = 0.8
+
+# Background blur (macOS only)
+background-blur-radius = 20
+
+# ===== Terminal Configuration =====
+term = xterm-256color
+
+# ===== Cursor Configuration =====
+cursor-style = block
+cursor-style-blink = false
+
+# ===== Mouse Configuration =====
+# Copy to clipboard on select
+copy-on-select = true
+
+# Click to open URLs
+link-url = true
+
+# ===== Scrollback =====
+scrollback-limit = 10000
+
+# ===== Shell Integration =====
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# ===== Performance =====
+# Reduce input latency
+macos-non-native-fullscreen = false
+
+# ===== Advanced =====
+# Confirm before closing with running processes
+confirm-close-surface = false
+
+# Window decorations
+window-decoration = true
+
+# Theme (optional - remove or change as needed)
+# theme = default
+
+# ===== Keybindings =====
+# You can add custom keybindings here
+# Example: keybind = ctrl+shift+c=copy_to_clipboard
