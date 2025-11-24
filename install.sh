@@ -246,6 +246,20 @@ install_neovim_tools() {
     fi
 }
 
+# Install fonts
+install_fonts() {
+    print_header "Installing Fonts"
+
+    # JetBrains Mono Nerd Font
+    if brew list --cask font-jetbrains-mono-nerd-font &> /dev/null; then
+        print_success "font-jetbrains-mono-nerd-font already installed"
+    else
+        print_info "Installing JetBrains Mono Nerd Font..."
+        brew install --cask font-jetbrains-mono-nerd-font
+        print_success "font-jetbrains-mono-nerd-font installed"
+    fi
+}
+
 # Main installation flow
 main() {
     echo -e "${GREEN}"
@@ -263,6 +277,7 @@ main() {
 
     # Install everything
     install_homebrew
+    install_fonts
     install_terminal_tools
     install_shell_tools
     install_dev_tools

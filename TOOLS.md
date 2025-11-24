@@ -173,3 +173,18 @@ These external CLI tools are required by Neovim plugins:
 - **pyenv** - Python version manager
 - **Mason** - Neovim LSP/DAP/linter manager
 
+---
+
+## Fonts
+
+### JetBrains Mono Nerd Font
+**Purpose:** Primary monospace font with programming ligatures and Nerd Font icons
+**Installed via:** Homebrew (`font-jetbrains-mono-nerd-font`)
+**Used by:** Ghostty, Alacritty, and other terminal emulators
+**Website:** https://www.nerdfonts.com/
+**Features:**
+- Programming ligatures for better code readability
+- Extensive icon set from Nerd Fonts
+- Optimized for long coding sessions
+- Excellent Unicode coverage
+
