@@ -5,6 +5,7 @@ lint.linters_by_ft = {
   javascriptreact = { "eslint_d" },
   typescript = { "eslint_d" },
   typescriptreact = { "eslint_d" },
+  sql = { "sqlfluff" },
 }
 
 -- Auto-lint on save and text changes

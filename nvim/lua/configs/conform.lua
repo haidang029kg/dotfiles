@@ -37,8 +37,17 @@ local options = {
     typescriptreact = get_js_formatters,
     yaml = { "prettier" },
     json = { "jq" },
+    sql = { "sqlfluff" },
     -- css = { "prettier" },
     -- html = { "prettier" },
+  },
+
+  formatters = {
+    sqlfluff = {
+      command = "sqlfluff",
+      args = { "format", "--config", vim.fn.expand("~/.config/.sqlfluff"), "-" },
+      stdin = true,
+    },
   },
 
   -- format_on_save = {

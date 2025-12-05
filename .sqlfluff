@@ -1,0 +1,15 @@
+[sqlfluff]
+dialect = postgres
+templater = placeholder
+max_line_length = 100
+
+[sqlfluff:templater:placeholder]
+param_regex = (\:[a-zA-Z_][a-zA-Z0-9_]*)|(\{[a-zA-Z_][a-zA-Z0-9_]*\})
+# This allows :param_name and {variable_name} style parameters
+
+[sqlfluff:indentation]
+indent_unit = space
+tab_space_size = 2
+
+[sqlfluff:rules]
+capitalisation_policy = upper

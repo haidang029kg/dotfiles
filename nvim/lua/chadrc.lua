@@ -12,7 +12,7 @@ M.base46 = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-  transparency = true,
+  transparency = false,
 }
 
 M.nvdash = { load_on_startup = true }
@@ -31,6 +31,7 @@ M.mason = {
     "prettier",
     "prettierd",
     "ruff", -- (include linter)
+    "sqlfluff", -- (include linter)
 
     -- Linters
     "eslint_d",
