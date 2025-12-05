@@ -12,10 +12,15 @@ alias vim="nvim"
 # cmd to copy the current branch name to the clipboard
 alias gC="git branch --show-current | pbcopy"
 
-# cd to home
-alias cdh="cd ~"
-# cd to dotfile cfg directory
-alias cdf="cd ~/.config/"
-# cd to project directory
-alias cdp="cd ~/projects"
+# search git commits by message
+alias glf="git log --color=always --format=\"%C(auto)%h%d %s %C(black)%C(bold)%cr\" | fzf --ansi --preview \"git show --color=always {1}\""
+
+# exec docker container by container name
+alias dex="docker exec -it \$(docker ps --format '{{.Names}}' | fzf) bash"
+
+# save docker logs to log.log (default tail 1000 lines, or pass custom number)
+dlogs() {
+  local tail_lines=${1:-1000}
+  docker logs --tail $tail_lines $(docker ps --format '{{.Names}}' | fzf) > log.log
+}
 
