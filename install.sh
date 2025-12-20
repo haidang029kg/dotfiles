@@ -82,6 +82,15 @@ install_terminal_tools() {
 install_shell_tools() {
     print_header "Installing Shell Tools"
 
+    # Install zsh (usually pre-installed on macOS, but ensuring it's available)
+    if check_installed zsh; then
+        print_success "zsh already installed"
+    else
+        print_info "Installing zsh..."
+        brew install zsh
+        print_success "zsh installed"
+    fi
+
     local tools=(
         "atuin"
         "zoxide"
@@ -101,6 +110,51 @@ install_shell_tools() {
             print_success "$tool installed"
         fi
     done
+
+    # Install Oh My Zsh
+    if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
+        print_info "Installing Oh My Zsh..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        print_success "Oh My Zsh installed"
+    else
+        print_success "Oh My Zsh already installed"
+    fi
+
+    # Install Oh My Zsh plugins
+    local ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+        print_info "Installing zsh-autosuggestions..."
+        git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+        print_success "zsh-autosuggestions installed"
+    else
+        print_success "zsh-autosuggestions already installed"
+    fi
+
+    if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ]; then
+        print_info "Installing fast-syntax-highlighting..."
+        git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git "$ZSH_CUSTOM/plugins/fast-syntax-highlighting"
+        print_success "fast-syntax-highlighting installed"
+    else
+        print_success "fast-syntax-highlighting already installed"
+    fi
+
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autocomplete" ]; then
+        print_info "Installing zsh-autocomplete..."
+        git clone --depth 1 https://github.com/marlonrichert/zsh-autocomplete.git "$ZSH_CUSTOM/plugins/zsh-autocomplete"
+        print_success "zsh-autocomplete installed"
+    else
+        print_success "zsh-autocomplete already installed"
+    fi
+
+    # Install Powerlevel10k theme
+    if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+        print_info "Installing Powerlevel10k theme..."
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+        print_success "Powerlevel10k installed"
+    else
+        print_success "Powerlevel10k already installed"
+    fi
 }
 
 # Install development tools
