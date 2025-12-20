@@ -16,7 +16,7 @@ alias gC="git branch --show-current | pbcopy"
 alias glf="git log --color=always --format=\"%C(auto)%h%d %s %C(black)%C(bold)%cr\" | fzf --ansi --preview \"git show --color=always {1}\""
 
 # exec docker container by container name
-alias dex="docker exec -it \$(docker ps --format '{{.Names}}' | fzf) bash"
+alias dexec="docker exec -it \$(docker ps --format '{{.Names}}' | fzf) bash"
 
 # save docker logs to log.log (default tail 1000 lines, or pass custom number)
 dlogs() {
